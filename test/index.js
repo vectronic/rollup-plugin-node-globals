@@ -8,7 +8,8 @@ var files = [
   'process-generic.js',
   'process-nexttick.js',
   'dirname.js',
-  'process-browser.js'
+  'process-browser.js',
+  'global.js'
 ];
 describe( 'rollup-plugin-inject', function () {
   files.forEach(function (file) {

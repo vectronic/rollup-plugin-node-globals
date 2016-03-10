@@ -54,7 +54,7 @@ export default options => {
         'process.nextTick': [PROCESS_PATH, 'nextTick'],
         'process.browser': [PROCESS_PATH, 'browser'],
         Buffer: BUFFER_PATH,
-        global: GLOBAL_PATH,
+        global: [GLOBAL_PATH, '_global'],
         __filename: '__filename',
         __dirname: '__dirname'
       };
