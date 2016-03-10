@@ -2,7 +2,6 @@ import babel from 'rollup-plugin-babel';
 
 var external = Object.keys( require( './package.json' ).dependencies ).concat(
   'path',
-  'fs',
   'crypto'
 );
 
