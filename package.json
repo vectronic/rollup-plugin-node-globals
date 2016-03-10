@@ -30,5 +30,9 @@
     "mocha": "^2.4.5",
     "rollup": "^0.25.4",
     "rollup-plugin-babel": "^2.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:calvinmetcalf/rollup-plugin-node-globals.git"
   }
 }
