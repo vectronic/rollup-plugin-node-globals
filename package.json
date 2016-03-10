@@ -4,6 +4,11 @@
   "jsnext:main": "dist/rollup-plugin-node-globals.es6.js",
   "version": "1.0.0",
   "description": "insert the same globals browserify does",
+  "files": [
+    "src",
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "test": "mocha",
     "pretest": "npm run build",

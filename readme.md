@@ -1,7 +1,8 @@
 rollup-plugin-node-globals
 ===
 
-Plugin to insert node globals including so code that works with browserify should work even if it uses process or buffers.
+Plugin to insert node globals including so code that works with browserify should work even if it uses process or buffers. This not only uses [rollup-plugin-inject
+](https://github.com/rollup/rollup-plugin-inject) but bases itself on that as well.
 
 - process
 - global
