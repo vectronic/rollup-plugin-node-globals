@@ -13,7 +13,8 @@
     "test": "mocha",
     "pretest": "npm run build",
     "build": "rollup -c -f cjs -o dist/rollup-plugin-node-globals.cjs.js && rollup -c -f es6 -o dist/rollup-plugin-node-globals.es6.js",
-    "prebuild": "rm -rf dist && rm -rf tmp && mkdir tmp && mkdir dist && browserify src/buffer-raw.js > tmp/buffer-raw.js && cat src/buffer-prefix.js tmp/buffer-raw.js src/buffer-suffix.js > dist/buffer.js && rm -rf tmp",
+    "create-buffer": "browserify src/buffer-raw.js | derequire | derequire --from module --to ___mod | derequire --from exports --to _expor_ > tmp/buffer-raw.js",
+    "prebuild": "rm -rf dist && rm -rf tmp && mkdir tmp && mkdir dist && npm run create-buffer && cat src/buffer-prefix.js tmp/buffer-raw.js src/buffer-suffix.js > dist/buffer.js && rm -rf tmp",
     "prepublish": "npm test"
   },
   "author": "Calvin Metcalf <calvin.metcalf@gmail.com>",
