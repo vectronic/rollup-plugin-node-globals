@@ -35,6 +35,9 @@ export default options => {
         dirs.set(id,  '/' + relative(basedir, importer));
         return id;
       }
+      if (importee === 'buffer' || importee === 'buffer/') {
+        return BUFFER_PATH;
+      }
     },
     transform(code, id) {
       var opts = clone(options);
@@ -42,7 +45,7 @@ export default options => {
         process: PROCESS_PATH,
         'process.nextTick': [PROCESS_PATH, 'nextTick'],
         'process.browser': [PROCESS_PATH, 'browser'],
-        Buffer: BUFFER_PATH,
+        Buffer: [BUFFER_PATH, 'Buffer'],
         global: [GLOBAL_PATH, '_global'],
         __filename: '__filename',
         __dirname: '__dirname'
