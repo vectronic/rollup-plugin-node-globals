@@ -1,5 +1,5 @@
 export default {
-  Buffer:_buffer
+  Buffer:_buffer,
   SlowBuffer: _slowbuffer,
   INSPECT_MAX_BYTES: _INSPECT_MAX_BYTES
 }

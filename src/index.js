@@ -35,9 +35,6 @@ export default options => {
         dirs.set(id,  '/' + relative(basedir, importer));
         return id;
       }
-      if (importee === 'buffer' || importee === 'buffer/') {
-        return BUFFER_PATH;
-      }
     },
     transform(code, id) {
       var opts = clone(options);
