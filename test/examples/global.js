@@ -4,4 +4,6 @@ if (global.setImmediate) {
 } else {
   timeout = global.setTimeout;
 }
-export default timeout;
+if (typeof timeout !== 'function') {
+  throw new Error('no timeout');
+}

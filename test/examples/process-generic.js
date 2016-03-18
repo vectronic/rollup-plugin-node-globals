@@ -1,1 +1,3 @@
-export default process.version
+if (process.version !== '') {
+  throw new Error('where is process.version?');
+}
