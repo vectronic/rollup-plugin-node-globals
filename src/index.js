@@ -5,7 +5,6 @@ import {randomBytes} from 'crypto';
 const PROCESS_PATH =  require.resolve('process-es6');
 const BUFFER_PATH = join(__dirname, '..', 'dist', 'buffer.js');
 const GLOBAL_PATH = join(__dirname, '..', 'src', 'global.js');
-const FILEPATH_PATH = join(__dirname, '..', 'src', 'filepath-placeholder.js');
 
 function clone (obj) {
   var out = {};
