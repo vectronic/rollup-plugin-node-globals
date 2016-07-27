@@ -14,8 +14,7 @@
     "pretest": "npm run build",
     "build": "rollup -c -f cjs -o dist/rollup-plugin-node-globals.cjs.js && rollup -c -f es6 -o dist/rollup-plugin-node-globals.es6.js",
     "create-buffer": "browserify src/buffer-raw.js | derequire | derequire --from module --to ___mod | derequire --from exports --to _expor_ > tmp/buffer-raw.js",
-    "prebuild": "rm -rf dist && rm -rf tmp && mkdir tmp && mkdir dist && npm run create-buffer && cat src/buffer-prefix.js tmp/buffer-raw.js src/buffer-suffix.js > dist/buffer.js && rm -rf tmp",
-    "prepublish": "npm test"
+    "prebuild": "rimraf dist tmp && mkdirp tmp dist && npm run create-buffer && cat src/buffer-prefix.js tmp/buffer-raw.js src/buffer-suffix.js > dist/buffer.js && rimraf tmp"
   },
   "author": "Calvin Metcalf <calvin.metcalf@gmail.com>",
   "license": "MIT",
@@ -29,7 +28,9 @@
   "devDependencies": {
     "babel-preset-es2015-rollup": "^1.1.1",
     "browserify": "^13.0.0",
+    "mkdirp": "^0.5.1",
     "mocha": "^2.4.5",
+    "rimraf": "^2.5.4",
     "rollup": "^0.25.4",
     "rollup-plugin-babel": "^2.4.0"
   },

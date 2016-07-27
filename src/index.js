@@ -9,7 +9,11 @@ const GLOBAL_PATH = join(__dirname, '..', 'src', 'global.js');
 function clone (obj) {
   var out = {};
   Object.keys(obj).forEach(function (key) {
-    out[key] = obj[key];
+    if (Array.isArray(obj[key])) {
+      out[key] = obj[key].slice();
+    } else {
+      out[key] = obj[key];
+    }
   });
   return out;
 }
@@ -37,6 +41,9 @@ export default options => {
     },
     transform(code, id) {
       var opts = clone(options);
+      opts.exclude = opts.exclude || [];
+      opts.exclude.push(GLOBAL_PATH);
+      opts.exclude.push(BUFFER_PATH);
       opts.modules = {
         process: PROCESS_PATH,
         'process.nextTick': [PROCESS_PATH, 'nextTick'],
