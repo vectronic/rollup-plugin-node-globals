@@ -13,14 +13,17 @@
     "test": "mocha",
     "pretest": "npm run build",
     "build": "rollup -c -f cjs -o dist/rollup-plugin-node-globals.cjs.js && rollup -c -f es6 -o dist/rollup-plugin-node-globals.es6.js",
-    "create-buffer": "browserify src/buffer-raw.js | derequire | derequire --from module --to ___mod | derequire --from exports --to _expor_ > tmp/buffer-raw.js",
-    "prebuild": "rimraf dist tmp && mkdirp tmp dist && npm run create-buffer && cat src/buffer-prefix.js tmp/buffer-raw.js src/buffer-suffix.js > dist/buffer.js && rimraf tmp"
+    "prebuild": "rimraf dist && mkdirp dist"
   },
   "author": "Calvin Metcalf <calvin.metcalf@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "acorn": "^4.0.1",
+    "buffer-es6": "^4.9.1",
+    "estree-walker": "^0.2.1",
+    "magic-string": "^0.16.0",
     "process-es6": "^0.11.3",
-    "rollup-plugin-inject": "^1.4.0"
+    "rollup-pluginutils": "^1.5.2"
   },
   "keywords": [
     "rollup-plugin"

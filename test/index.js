@@ -2,7 +2,9 @@
 var rollup = require( 'rollup' );
 var globals = require( '../dist/rollup-plugin-node-globals.cjs' );
 var path = require('path');
+var vm = require('vm');
 var files = [
+  'isBuffer.js',
   'buffer.js',
   'process-generic.js',
   'process-nexttick.js',
@@ -22,8 +24,15 @@ describe( 'rollup-plugin-node-globals', function () {
 		}).then( function ( bundle ) {
 			var generated = bundle.generate();
 			var code = generated.code;
-			var func = new Function('dirname', 'filename', code);
-      func(path.join(__dirname, 'examples'), path.join(__dirname, 'examples', 'dirname.js'));
+      var script = new vm.Script(code);
+      var context = vm.createContext({
+        dirname: path.join(__dirname, 'examples'),
+        filename: path.join(__dirname, 'examples', 'dirname.js'),
+        setTimeout: setTimeout,
+        clearTimeout: clearTimeout,
+      });
+      context.self = context;
+			script.runInContext(context);
 		});
 	});
 })
