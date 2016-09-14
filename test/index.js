@@ -4,6 +4,7 @@ var globals = require( '../dist/rollup-plugin-node-globals.cjs' );
 var path = require('path');
 var vm = require('vm');
 var files = [
+  'imports.js',
   'isBuffer.js',
   'buffer.js',
   'process-generic.js',
@@ -19,6 +20,13 @@ describe( 'rollup-plugin-node-globals', function () {
 		return rollup.rollup({
 			entry: 'test/examples/' + file,
 			plugins: [
+        {
+          resolveId: function (importee){
+            if (importee === 'buffer') {
+              return require.resolve('buffer-es6');
+            }
+          }
+        },
 				globals()
 			]
 		}).then( function ( bundle ) {
