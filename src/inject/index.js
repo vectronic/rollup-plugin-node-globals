@@ -99,7 +99,7 @@ export default function(code, id, mod1, mod2, sourceMap) {
       const importLocalName = name === keypath ? name : makeLegalIdentifier(`$inject_${keypath}`);
 
       if (!newImports[hash]) {
-        newImports[hash] = `import ${typeof module === 'string' ? importLocalName : `{ ${module[1]} as ${importLocalName} }`} from '${moduleName}';`;
+        newImports[hash] = `import ${typeof module === 'string' ? importLocalName : `{ ${module[1]} as ${importLocalName} }`} from ${JSON.stringify(moduleName)};`;
       }
 
       if (name !== keypath) {
