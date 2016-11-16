@@ -5,15 +5,15 @@ var globals = require( '../dist/rollup-plugin-node-globals.cjs' );
 var path = require('path');
 var vm = require('vm');
 var files = [
-  'imports.js',
-  'isBuffer.js',
-  'buffer.js',
-  'process-generic.js',
-  'process-nexttick.js',
-  'dirname.js',
+  // 'imports.js',
+  // 'isBuffer.js',
+  // 'buffer.js',
+  // 'process-generic.js',
+  // 'process-nexttick.js',
+  // 'dirname.js',
   'process-browser.js',
-  'global.js',
-  'sneaky.js'
+  // 'global.js',
+  // 'sneaky.js'
 ];
 describe( 'rollup-plugin-node-globals', function () {
   files.forEach(function (file) {
@@ -33,6 +33,7 @@ describe( 'rollup-plugin-node-globals', function () {
 		}).then( function ( bundle ) {
 			var generated = bundle.generate();
 			var code = generated.code;
+      console.log(code);
       var script = new vm.Script(code);
       var context = vm.createContext({
         dirname: path.join(__dirname, 'examples'),
