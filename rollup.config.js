@@ -8,5 +8,5 @@ var external = Object.keys( require( './package.json' ).dependencies ).concat(
 export default {
 	input: 'src/index.js',
 	plugins: [ babel() ],
-	external: external
+	external
 };

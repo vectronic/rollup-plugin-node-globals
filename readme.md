@@ -13,7 +13,7 @@ Plugin to insert node globals including so code that works with browserify shoul
 Plus `process.nextTick` and `process.browser` are optimized to only pull in
 themselves and __dirname and __filename point to the file on disk
 
-Only option beyond the default plugin ones is an optional basedir which is used for resolving __dirname and __filename.
+Only option beyond the default plugin ones is an optional `baseDir` which is used for resolving __dirname and __filename.
 
 # examples
 

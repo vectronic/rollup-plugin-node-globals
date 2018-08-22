@@ -19,7 +19,7 @@ describe( 'rollup-plugin-node-globals', function () {
   files.forEach(function (file) {
 	it( 'works with ' + file, function () {
 		return rollup.rollup({
-			input: 'test/examples/' + file,
+			input: 'test/fixtures/' + file,
 			plugins: [
         {
           resolveId: function (importee){
@@ -36,8 +36,8 @@ describe( 'rollup-plugin-node-globals', function () {
       console.log(code);
       var script = new vm.Script(code);
       var context = vm.createContext({
-        dirname: path.join(__dirname, 'examples'),
-        filename: path.join(__dirname, 'examples', 'dirname.js'),
+        dirname: path.join(__dirname, 'fixtures'),
+        filename: path.join(__dirname, 'fixtures', 'dirname.js'),
         setTimeout: setTimeout,
         clearTimeout: clearTimeout,
       });
@@ -49,7 +49,7 @@ describe( 'rollup-plugin-node-globals', function () {
 
   it( 'works with rollup-plugin-node-resolve', function () {
     return rollup.rollup({
-      input: 'test/examples/dirname.js',
+      input: 'test/fixtures/dirname.js',
       plugins: [
         nodeResolve(),
         globals()
@@ -59,8 +59,8 @@ describe( 'rollup-plugin-node-globals', function () {
       var code = generated.code;
       var script = new vm.Script(code);
       var context = vm.createContext({
-        dirname: path.join(__dirname, 'examples'),
-        filename: path.join(__dirname, 'examples', 'dirname.js'),
+        dirname: path.join(__dirname, 'fixtures'),
+        filename: path.join(__dirname, 'fixtures', 'dirname.js'),
         setTimeout: setTimeout,
         clearTimeout: clearTimeout,
       });
