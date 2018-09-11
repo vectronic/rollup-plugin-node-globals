@@ -19,12 +19,12 @@
   "author": "Calvin Metcalf <calvin.metcalf@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "acorn": "^5.5.0",
+    "acorn": "^5.7.3",
     "buffer-es6": "^4.9.3",
-    "estree-walker": "^0.5.1",
-    "magic-string": "^0.22.4",
+    "estree-walker": "^0.5.2",
+    "magic-string": "^0.22.5",
     "process-es6": "^0.11.6",
-    "rollup-pluginutils": "^2.0.1"
+    "rollup-pluginutils": "^2.3.1"
   },
   "keywords": [
     "rollup-plugin"
