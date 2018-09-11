@@ -4046,7 +4046,11 @@ if (typeof timeout !== 'function') {
 `;
 
 exports[`polyfills process-browser: input 1`] = `
-"if (!process.browser) {
+"// Special case for spread operator
+const a = {};
+const b = {...a};
+
+if (!process.browser) {
   throw Error('must be a browser');
 }
 "
